@@ -8,6 +8,7 @@ void erromsg();
 void checkbalance(float balance);
 void withdraw(float balance);
 void deposit(float balance);
+void menuexit();
 
 int main()
 {
@@ -121,5 +122,11 @@ void deposit(float balance)
 	fpointer=fopen("balance.txt","w");
 	fprintf(fpointer,"%.2f",balance);
 	fclose(fpointer);
+}
+
+void menuexit()
+{   system("CLS");
+	printf("take your recipt\n");
+	printf("THANK YOU!\n");
 }
  
