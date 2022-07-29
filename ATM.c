@@ -12,7 +12,7 @@ void menuexit();
 
 int main()
 {
-	int option;
+	int option,choose;
 	
 	bool again=true;
 
