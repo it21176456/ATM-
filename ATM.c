@@ -103,6 +103,9 @@ void checkbalance(float balance)
 void withdraw(float balance)
 {
 	float amount;
+	bool back=true;
+	while(back)
+	{
 	printf("Enter the amount to withdraw: ");
 	scanf("%f",&amount);
 	if(amount>balance)
@@ -114,6 +117,7 @@ void withdraw(float balance)
 		balance=balance-amount;
 		printf("Please collect your cash\n");
 		printf("Your Balance is %.2f\n",balance);
+	}
 	}
 
 	FILE*fpointer;
