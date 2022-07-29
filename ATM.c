@@ -28,39 +28,7 @@ int main()
 		fclose(fpointer);
 	}
 
-	
-
-
-
-
-	while(again)
-	{
-		mainmenu();
-		scanf("%d",&option);
-
-		switch(option)
-		{
-			case 1:
-			system("cls");
-				checkbalance(balance);
-				break;
-			case 2:
-			system("cls");
-				withdraw();
-				break;
-			case 3:
-			system("cls");
-				deposit();
-				break;
-			case 4:
-			system("cls");
-				menuexit();
-				return 0;
-			default:
-			    erromsg();
-				break;
-		}
-	}
+	checkbalance(balance);
 }
 
 void mainmenu()
