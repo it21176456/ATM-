@@ -16,44 +16,42 @@ int main()
 	
 	bool again=true;
 
-	FILE*fpointer;
-	fpointer=fopen("balance.txt","r");
-	float balance;
-
-	if(fpointer==NULL)
-	{
-		printf("Error! File not found!");
-		return -1;
-	}
-
-	else
-	{
-		fscanf(fpointer,"%f",&balance);
-		fclose(fpointer);
-	}
-
 	
-
-
-
+	float balance;
 
 	while(again)
 	{
 		mainmenu();
+
 		scanf("%d",&option);
+
+		FILE*fpointer;
+		fpointer=fopen("balance.txt","r");
+		if(fpointer==NULL)
+		{
+			printf("Error! File not found!");
+			return -1;
+		}
+		else
+		{
+			fscanf(fpointer,"%f",&balance);
+		}
 
 		switch(option)
 		{
 			case 1:
 			system("cls");
+				
 				checkbalance(balance);
 				break;
 			case 2:
 			system("cls");
+				
 				withdraw(balance);
 				break;
 			case 3:
 			system("cls");
+				
 				deposit(balance);
 				break;
 			case 4:
@@ -65,7 +63,7 @@ int main()
 				break;
 		}
 
-		printf("would you like to do a another transaction??????\n");
+	printf("would you like to do a another transaction??????\n");
 	printf("<1>yes\n");
 	printf("<2>no\n");
 	
@@ -76,7 +74,9 @@ int main()
 	    again=false;
 	    menuexit();
 	}
+	fclose(fpointer);
 	}
+	
 	return 0;
 }
 
