@@ -103,6 +103,9 @@ void checkbalance(float balance)
 
 void withdraw(float balance)
 {
+	FILE*fpointer;
+	fpointer=fopen("balance.txt","w");
+
 	float amount;
 	bool back=true;
 	while(back)
@@ -122,22 +125,24 @@ void withdraw(float balance)
 	}
 	}
 
-	FILE*fpointer;
-	fpointer=fopen("balance.txt","w");
+	
+	
 	fprintf(fpointer,"%.2f",balance);
 	fclose(fpointer);
 }
 
 void deposit(float balance)
 {
+	FILE*fpointer;
+	fpointer=fopen("balance.txt","w");
+	
 	float amount;
 	printf("Enter the amount to deposit: ");
 	scanf("%f",&amount);
 	balance=balance+amount;
 	printf("Your Balance is %.2f\n",balance);
 
-	FILE*fpointer;
-	fpointer=fopen("balance.txt","w");
+	
 	fprintf(fpointer,"%.2f",balance);
 	fclose(fpointer);
 }
