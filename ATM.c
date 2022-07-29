@@ -91,7 +91,7 @@ void checkbalance()
         printf("file not found\n");
     }
    
-   fscanf(fpointer,"%.2f",balance);
+   fscanf(fpointer,"%f",balance);
 
    printf("your balance is %.2f\n",balance);
 	
