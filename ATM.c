@@ -77,6 +77,7 @@ int main()
 	    menuexit();
 	}
 	}
+	return 0;
 }
 
 void mainmenu()
