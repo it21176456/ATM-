@@ -64,6 +64,18 @@ int main()
 			    erromsg();
 				break;
 		}
+
+		printf("would you like to do a another transaction??????\n");
+	printf("<1>yes\n");
+	printf("<2>no\n");
+	
+	scanf("%d",&choose);
+	system("CLS");
+	if(choose==2)
+	{
+	    again=false;
+	    menuexit();
+	}
 	}
 }
 
