@@ -117,6 +117,7 @@ void withdraw(float balance)
 		balance=balance-amount;
 		printf("Please collect your cash\n");
 		printf("Your Balance is %.2f\n",balance);
+		back=false;
 	}
 	}
 
