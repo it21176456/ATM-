@@ -6,9 +6,11 @@
 void erromsg();
 void mainmenu();
 void menuexit();
-void checkbalance(float balance);
+void checkbalance();
 float moneydeposit(float balance);
 float moneywithdraw(float balance);
+
+
 
 int main()
 {
@@ -25,7 +27,7 @@ int main()
 		{
 			case 1:
 			system("CLS");
-			checkbalance(balance);
+			void checkbalance();
 			break;
 			
 		case 2:
@@ -76,9 +78,22 @@ void mainmenu()
 	printf("<3>witdraw\n");
 	printf("<4>exit\n");
 }
-void checkbalance(float balance)
+
+
+void checkbalance()
 {
-	printf("your bank balance is= %.2f\n",balance);
+	float balance;
+    FILE*fpointer;
+    fpointer=fopen("balance.txt","r");
+
+    if(fpointer==NULL)
+    {
+        printf("file not found\n");
+    }
+   
+   fscanf(fpointer,"%.2f",balance);
+
+   printf("your balance is %.2f\n",balance);
 	
 }
 void menuexit()
@@ -135,5 +150,3 @@ void erromsg()
 {
 	printf("++++++ you selected invalid number ++++++\n");
 }
-
-
