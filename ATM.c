@@ -5,12 +5,33 @@
 
 void mainmenu();
 void erromsg();
-
+void checkbalance(float balance);
 int main()
 {
 	int option;
 	
 	bool again=true;
+
+	FILE*fpointer;
+	fpointer=fopen("balance.txt","r");
+	float balance;
+
+	if(fpointer==NULL)
+	{
+		printf("Error! File not found!");
+		return -1;
+	}
+
+	else
+	{
+		fscanf(fpointer,"%f",&balance);
+		fclose(fpointer);
+	}
+
+	
+
+
+
 
 	while(again)
 	{
@@ -21,7 +42,7 @@ int main()
 		{
 			case 1:
 			system("cls");
-				balance();
+				checkbalance(balance);
 				break;
 			case 2:
 			system("cls");
@@ -56,4 +77,9 @@ void mainmenu()
 void erromsg()
 {
 	printf("Invalid Option\n");
+}
+
+void checkbalance(float balance)
+{
+	printf("Your Balance is %.2f\n",balance);
 }
