@@ -6,6 +6,9 @@
 void mainmenu();
 void erromsg();
 void checkbalance(float balance);
+void withdraw(float balance);
+void deposit(float balance);
+
 int main()
 {
 	int option;
@@ -28,7 +31,39 @@ int main()
 		fclose(fpointer);
 	}
 
-	checkbalance(balance);
+	
+
+
+
+
+	while(again)
+	{
+		mainmenu();
+		scanf("%d",&option);
+
+		switch(option)
+		{
+			case 1:
+			system("cls");
+				checkbalance(balance);
+				break;
+			case 2:
+			system("cls");
+				withdraw(balance);
+				break;
+			case 3:
+			system("cls");
+				deposit(balance);
+				break;
+			case 4:
+			system("cls");
+				menuexit();
+				return 0;
+			default:
+			    erromsg();
+				break;
+		}
+	}
 }
 
 void mainmenu()
@@ -51,3 +86,40 @@ void checkbalance(float balance)
 {
 	printf("Your Balance is %.2f\n",balance);
 }
+
+void withdraw(float balance)
+{
+	float amount;
+	printf("Enter the amount to withdraw: ");
+	scanf("%f",&amount);
+	if(amount>balance)
+	{
+		printf("Insufficient Balance\n");
+	}
+	else
+	{
+		balance=balance-amount;
+		printf("Please collect your cash\n");
+		printf("Your Balance is %.2f\n",balance);
+	}
+
+	FILE*fpointer;
+	fpointer=fopen("balance.txt","w");
+	fprintf(fpointer,"%.2f",balance);
+	fclose(fpointer);
+}
+
+void deposit(float balance)
+{
+	float amount;
+	printf("Enter the amount to deposit: ");
+	scanf("%f",&amount);
+	balance=balance+amount;
+	printf("Your Balance is %.2f\n",balance);
+
+	FILE*fpointer;
+	fpointer=fopen("balance.txt","w");
+	fprintf(fpointer,"%.2f",balance);
+	fclose(fpointer);
+}
+ 
